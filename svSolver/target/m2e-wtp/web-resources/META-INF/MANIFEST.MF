@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: Services & Soluciones
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: bdesir
+Implementation-Vendor-Id: svsolver
+Build-Jdk: 1.8.0_31
+Implementation-URL: http://projects.spring.io/spring-boot/ar.com.svsol
+ ver/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Developper
+
