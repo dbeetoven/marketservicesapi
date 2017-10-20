@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package ar.com.svsolver.service.web.config;
+package ar.com.mercado.servicios.service.web.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

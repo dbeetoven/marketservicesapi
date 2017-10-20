@@ -1,87 +1,64 @@
 /**
  * 
  */
-package ar.com.mercado.servicios.model.entity;
+package ar.com.mercado.servicios.model.entity.dto;
 
 import java.time.LocalDate;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import ar.com.mercado.servicios.model.entity.Cards;
+import ar.com.mercado.servicios.model.entity.Country;
+import ar.com.mercado.servicios.model.entity.Direction;
+import ar.com.mercado.servicios.model.entity.StatusCustomer;
 
 /**
  * @author bdesir
  *
  */
-@Entity
-@Table(name = "customer")
-public class Customer extends AbstractEntity {
+public class CustomerDTO {
 
-	private static final long serialVersionUID = 1L;
+	private Long id;
 
-	@Email
-	@Column(nullable = false, unique = true)
+	@NotEmpty
 	private String email;
 
-	@JsonIgnore
-	@Column(nullable = false)
-	private String password;
-
-	@Column(nullable = false)
+	@NotEmpty
 	private String alias;
 
-	@Column(nullable = false)
+	@NotEmpty
 	private String firstName;
 
-	@Column(nullable = false)
+	@NotEmpty(message = "El apellido no puede ser vacio")
 	private String lastName;
 
-	@Column(nullable = false)
+	@NotNull(message = "La fecha de nacimiento no puede ser vacia")
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate birthday;
 
-	@Column(nullable = true)
 	private Direction direction;
 
-	@Column(nullable = true)
 	private Country countryOfBirth;
 
-	@Column(nullable = false)
+	@NotNull
 	private LocalDate dateFrom;
 
-	@Column(nullable = true)
 	private LocalDate dateTo;
-
-	@Column(nullable = false)
 	private Integer score;
-
-	@Embedded
 	private StatusCustomer statusCustomer;
-
-	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
 	private Set<Cards> cards;
 
-	public String getEmail() {
-		return email;
+	public Long getId() {
+		return id;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getAlias() {

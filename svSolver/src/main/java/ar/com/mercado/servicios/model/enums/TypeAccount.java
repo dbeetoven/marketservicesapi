@@ -1,4 +1,4 @@
-package ar.com.services.solutions.model.enums;
+package ar.com.mercado.servicios.model.enums;
 
 public enum TypeAccount {
 

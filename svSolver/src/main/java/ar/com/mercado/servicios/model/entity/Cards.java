@@ -1,34 +1,50 @@
 /**
  * 
  */
-package ar.com.services.solutions.model.entity;
+package ar.com.mercado.servicios.model.entity;
 
 import java.io.Serializable;
 
-import ar.com.services.solutions.model.enums.TypeAccount;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
+
+import ar.com.mercado.servicios.model.enums.TypeAccount;
 
 /**
  * @author bdesir
  *
  */
+@MappedSuperclass
 public class Cards implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private int idAccount;
+	@Column(name = "idAccount")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idAccount;
+	
 	private int number;
+	
 	private TypeAccount typeAccount;
+	
 	private int numberVerify;
+	
+	@ManyToOne
+	@Column(name="id_customer")
+	private Customer customer;
 
 	public Cards() {
 		super();
 	}
 
-	public int getIdAccount() {
+	public Long getIdAccount() {
 		return idAccount;
 	}
 
-	public void setIdAccount(int idAccount) {
+	public void setIdAccount(Long idAccount) {
 		this.idAccount = idAccount;
 	}
 
@@ -60,7 +76,7 @@ public class Cards implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + idAccount;
+		result = prime * result + ((idAccount == null) ? 0 : idAccount.hashCode());
 		result = prime * result + number;
 		result = prime * result + numberVerify;
 		result = prime * result + ((typeAccount == null) ? 0 : typeAccount.hashCode());
@@ -76,7 +92,10 @@ public class Cards implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Cards other = (Cards) obj;
-		if (idAccount != other.idAccount)
+		if (idAccount == null) {
+			if (other.idAccount != null)
+				return false;
+		} else if (!idAccount.equals(other.idAccount))
 			return false;
 		if (number != other.number)
 			return false;

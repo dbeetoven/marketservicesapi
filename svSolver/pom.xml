@@ -2,8 +2,6 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>ar.com.svsolver</artifactId>
-	<groupId>svsolver</groupId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 
@@ -132,8 +130,17 @@
 			<artifactId>h2</artifactId>
 			<scope>test</scope>
 		</dependency>
-    	
-		
+
+
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-core</artifactId>
+			<version>2.2.11</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
 	</dependencies>
 	
 	<build>
@@ -147,5 +154,7 @@
 		</plugins>
 	</build>
 	<description>Mercado servicios</description>
-	<name>Services &amp; Soluciones</name>
+	<groupId>ar.com.mercado.servicios</groupId>
+	<artifactId>mercado-servicios</artifactId>
+	<name>Mercado Servicios</name>
 </project>

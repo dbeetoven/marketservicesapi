@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package ar.com.svsolver.model.main.program;
+package ar.com.mercado.servicios.main.program;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -24,10 +24,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
-public class ServiceAndSolution {
+public class ProgramStarter {
 
 	public static void main(String[] args) throws Exception {
-		SpringApplication.run(ServiceAndSolution.class, args);
+		SpringApplication.run(ProgramStarter.class, args);
 	}
 
 }

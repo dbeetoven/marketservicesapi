@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ar.com.services.solutions.model.entity;
+package ar.com.mercado.servicios.model.entity;
 
 import java.io.Serializable;
 
@@ -17,16 +17,16 @@ public class Direction implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column
+	@Column(name="street")
 	private String street;
 
-	@Column
+	@Column(name="number")
 	private String number;
 
-	@Column
+	@Column(name="zipCode")
 	private String zipCode;
 
-	@Column
+	@Column(name="city")
 	private String city;
 	
 	
